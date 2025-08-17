@@ -2,6 +2,8 @@
 
 A fun and addictive mobile-friendly tennis ball tapping game built with HTML5 Canvas and JavaScript!
 
+**🎮 [Play the game online now!](https://sslash220-code.github.io/tennis-app/)**
+
 ## 🎮 Game Features
 
 - **Vertical screen layout** - Perfect for mobile devices
@@ -21,7 +23,13 @@ A fun and addictive mobile-friendly tennis ball tapping game built with HTML5 Ca
 5. **Don't let the ball hit the bottom** - that's game over!
 6. **Beat your best score** - your high score is automatically saved
 
-## 🚀 How to Run
+## 🌐 Play Online
+
+**🎮 [Play Tennis Ball Tapper](https://sslash220-code.github.io/tennis-app/)**
+
+The game is now live and playable on any device! Simply open the link above in your browser.
+
+## 🚀 How to Run Locally
 
 ### Option 1: Simple Local Server
 1. Open a terminal/command prompt
@@ -93,7 +101,13 @@ Potential features to add:
 
 ## 🎮 Enjoy Playing!
 
+**🎾 [Play now at https://sslash220-code.github.io/tennis-app/](https://sslash220-code.github.io/tennis-app/)**
+
 Have fun keeping that tennis ball in the air! Challenge your friends to beat your high score and see who can become the ultimate Tennis Ball Tapper champion! 🏆
+
+---
+
+*Game deployed and hosted on GitHub Pages*
 
 
 

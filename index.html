@@ -25,15 +25,31 @@
             <div class="overlay-content">
                 <h2>Game Over!</h2>
                 <p>Final Score: <span id="final-score">0</span></p>
+                <div class="form-row">
+                    <input id="player-name" type="text" placeholder="Your name" maxlength="24" />
+                </div>
+                <div class="button-row">
+                    <button id="submit-score-btn">Submit Score</button>
+                    <button id="leaderboard-btn">Leaderboard</button>
+                </div>
                 <button id="restart-btn">Play Again</button>
             </div>
         </div>
         
+        <div class="game-overlay hidden" id="leaderboardOverlay">
+            <div class="overlay-content">
+                <h2>Leaderboard</h2>
+                <ul id="leaderboard-list" class="leaderboard-list"></ul>
+                <button id="close-leaderboard-btn">Close</button>
+            </div>
+        </div>
+
         <div class="start-screen" id="startScreen">
             <div class="start-content">
                 <h1>Tennis Ball Tapper</h1>
                 <p>Tap to keep the ball in the air!</p>
                 <button id="start-btn">Start Game</button>
+                <button id="start-leaderboard-btn">Leaderboard</button>
             </div>
         </div>
     </div>

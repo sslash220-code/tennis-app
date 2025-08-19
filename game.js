@@ -74,9 +74,21 @@ class TennisGame {
         document.getElementById('start-btn').addEventListener('click', () => {
             this.startGame();
         });
+        document.getElementById('start-leaderboard-btn').addEventListener('click', () => {
+            this.showLeaderboard();
+        });
         
         document.getElementById('restart-btn').addEventListener('click', () => {
             this.restartGame();
+        });
+        document.getElementById('leaderboard-btn').addEventListener('click', () => {
+            this.showLeaderboard();
+        });
+        document.getElementById('close-leaderboard-btn').addEventListener('click', () => {
+            this.hideLeaderboard();
+        });
+        document.getElementById('submit-score-btn').addEventListener('click', () => {
+            this.submitScore();
         });
         
         // Window resize
@@ -133,6 +145,8 @@ class TennisGame {
     showStartScreen() {
         this.startScreen.classList.remove('hidden');
         this.gameOverlay.classList.add('hidden');
+        const lb = document.getElementById('leaderboardOverlay');
+        lb.classList.add('hidden');
     }
     
     startGame() {
@@ -347,6 +361,51 @@ class TennisGame {
         this.draw();
         
         requestAnimationFrame(() => this.gameLoop());
+    }
+
+    async submitScore() {
+        const nameInput = document.getElementById('player-name');
+        const name = (nameInput.value || '').trim();
+        if (!name) {
+            nameInput.focus();
+            return;
+        }
+        try {
+            await fetch('/api/score', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, score: this.score })
+            });
+            nameInput.value = '';
+            this.showLeaderboard();
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+    async showLeaderboard() {
+        try {
+            const res = await fetch('/api/leaderboard?limit=20');
+            const data = await res.json();
+            const list = document.getElementById('leaderboard-list');
+            list.innerHTML = '';
+            (data.items || []).forEach((row, idx) => {
+                const li = document.createElement('li');
+                const rank = idx + 1;
+                li.textContent = `${rank}. ${row.name}`;
+                const scoreSpan = document.createElement('span');
+                scoreSpan.textContent = row.score;
+                li.appendChild(scoreSpan);
+                list.appendChild(li);
+            });
+            document.getElementById('leaderboardOverlay').classList.remove('hidden');
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+    hideLeaderboard() {
+        document.getElementById('leaderboardOverlay').classList.add('hidden');
     }
 }
 

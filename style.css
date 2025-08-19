@@ -140,6 +140,27 @@ button:active {
     display: none !important;
 }
 
+.form-row { margin: 10px 0 20px; }
+.form-row input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+.button-row { display: flex; gap: 10px; justify-content: center; margin-bottom: 15px; flex-wrap: wrap; }
+
+.leaderboard-list {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+    margin: 0 0 15px 0;
+    max-height: 300px;
+    overflow: auto;
+}
+.leaderboard-list li { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #eee; }
+
 /* Mobile optimizations */
 @media (max-width: 480px) {
     .game-container {
